@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuoteGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="명언 생성기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pe-Mm-nwt">
+                                <rect key="frame" x="20" y="64" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KI-x5-kMz">
+                                <rect key="frame" x="20" y="108" width="374" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sML-eT-rvT">
+                                        <rect key="frame" x="20" y="20" width="334" height="140"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzt-1L-15e">
+                                        <rect key="frame" x="20" y="180" width="334" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Rzt-1L-15e" secondAttribute="bottom" constant="20" id="47H-5B-Jd2"/>
+                                    <constraint firstItem="Rzt-1L-15e" firstAttribute="leading" secondItem="3KI-x5-kMz" secondAttribute="leading" constant="20" id="6zY-EL-9NB"/>
+                                    <constraint firstAttribute="trailing" secondItem="sML-eT-rvT" secondAttribute="trailing" constant="20" id="Epn-Vc-B8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rzt-1L-15e" secondAttribute="trailing" constant="20" id="UAO-lP-s0o"/>
+                                    <constraint firstItem="sML-eT-rvT" firstAttribute="leading" secondItem="3KI-x5-kMz" secondAttribute="leading" constant="20" id="Zqe-Ff-iu6"/>
+                                    <constraint firstItem="sML-eT-rvT" firstAttribute="top" secondItem="3KI-x5-kMz" secondAttribute="top" constant="20" id="lUi-Tb-GAq"/>
+                                    <constraint firstAttribute="height" constant="200" id="x0J-fa-UBS"/>
+                                    <constraint firstItem="Rzt-1L-15e" firstAttribute="top" secondItem="sML-eT-rvT" secondAttribute="bottom" constant="20" id="y8Q-OV-hny"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-be-UiO">
+                                <rect key="frame" x="168.5" y="328" width="77" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="생성하기!"/>
+                                <connections>
+                                    <action selector="tapQuoteGeneratorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5EX-sm-GzH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3KI-x5-kMz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="38P-Ms-8ui"/>
+                            <constraint firstItem="7pe-Mm-nwt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="HTb-Of-p4a"/>
+                            <constraint firstItem="7pe-Mm-nwt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ebt-Jv-SLk"/>
+                            <constraint firstItem="3KI-x5-kMz" firstAttribute="top" secondItem="7pe-Mm-nwt" secondAttribute="bottom" constant="20" id="fMp-f3-CZ8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3KI-x5-kMz" secondAttribute="trailing" constant="20" id="hI1-h4-Sf4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7pe-Mm-nwt" secondAttribute="trailing" constant="20" id="l3Q-eB-YOy"/>
+                            <constraint firstItem="IEa-be-UiO" firstAttribute="centerX" secondItem="3KI-x5-kMz" secondAttribute="centerX" id="pXw-9U-UM9"/>
+                            <constraint firstItem="IEa-be-UiO" firstAttribute="top" secondItem="3KI-x5-kMz" secondAttribute="bottom" constant="20" id="xuo-E5-lXU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="Rzt-1L-15e" id="1KA-Cl-tqe"/>
+                        <outlet property="quoteLabel" destination="sML-eT-rvT" id="fxP-2V-OgE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
