@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C41098F285DF1C200CA8975 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C41098E285DF1C200CA8975 /* Diary.swift */; };
 		4CFC759E285D561D006CDA2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC759D285D561D006CDA2B /* AppDelegate.swift */; };
 		4CFC75A0285D561D006CDA2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC759F285D561D006CDA2B /* SceneDelegate.swift */; };
 		4CFC75A2285D561D006CDA2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC75A1285D561D006CDA2B /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C41098E285DF1C200CA8975 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		4CFC759A285D561D006CDA2B /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFC759D285D561D006CDA2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFC759F285D561D006CDA2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				4CFC75B5285D5DAA006CDA2B /* StarCell.swift */,
 				4CFC75B7285D6649006CDA2B /* WriteDiaryViewController.swift */,
 				4CFC75B9285D668D006CDA2B /* DiaryDetailViewController.swift */,
+				4C41098E285DF1C200CA8975 /* Diary.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				4CFC75B6285D5DAA006CDA2B /* StarCell.swift in Sources */,
 				4CFC759E285D561D006CDA2B /* AppDelegate.swift in Sources */,
 				4CFC75A0285D561D006CDA2B /* SceneDelegate.swift in Sources */,
+				4C41098F285DF1C200CA8975 /* Diary.swift in Sources */,
 				4CFC75BA285D668D006CDA2B /* DiaryDetailViewController.swift in Sources */,
 				4CFC75B2285D5C78006CDA2B /* DiaryCell.swift in Sources */,
 				4CFC75B4285D5CAA006CDA2B /* StarViewController.swift in Sources */,
