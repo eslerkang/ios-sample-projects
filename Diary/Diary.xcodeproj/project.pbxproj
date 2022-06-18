@@ -16,6 +16,7 @@
 		4CFC75B2285D5C78006CDA2B /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC75B1285D5C78006CDA2B /* DiaryCell.swift */; };
 		4CFC75B4285D5CAA006CDA2B /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC75B3285D5CAA006CDA2B /* StarViewController.swift */; };
 		4CFC75B6285D5DAA006CDA2B /* StarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC75B5285D5DAA006CDA2B /* StarCell.swift */; };
+		4CFC75B8285D6649006CDA2B /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC75B7285D6649006CDA2B /* WriteDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4CFC75B1285D5C78006CDA2B /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		4CFC75B3285D5CAA006CDA2B /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		4CFC75B5285D5DAA006CDA2B /* StarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCell.swift; sourceTree = "<group>"; };
+		4CFC75B7285D6649006CDA2B /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4CFC75B1285D5C78006CDA2B /* DiaryCell.swift */,
 				4CFC75B3285D5CAA006CDA2B /* StarViewController.swift */,
 				4CFC75B5285D5DAA006CDA2B /* StarCell.swift */,
+				4CFC75B7285D6649006CDA2B /* WriteDiaryViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFC75A2285D561D006CDA2B /* ViewController.swift in Sources */,
+				4CFC75B8285D6649006CDA2B /* WriteDiaryViewController.swift in Sources */,
 				4CFC75B6285D5DAA006CDA2B /* StarCell.swift in Sources */,
 				4CFC759E285D561D006CDA2B /* AppDelegate.swift in Sources */,
 				4CFC75A0285D561D006CDA2B /* SceneDelegate.swift in Sources */,
