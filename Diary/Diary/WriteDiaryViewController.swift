@@ -24,6 +24,7 @@ class WriteDiaryViewController: UIViewController {
     
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
+    private var isStar = false
     weak var delegate: WrtieDiaryViewDelegate?
     var diaryEditorMode: DiaryEditorMode = .new
     
@@ -31,7 +32,7 @@ class WriteDiaryViewController: UIViewController {
         guard let title = self.titleTextField.text else {return}
         guard let content = self.contentTextView.text else {return}
         guard let date = self.diaryDate else {return}
-        let diary = Diary(title: title, content: content, date: date, isStar: false)
+        let diary = Diary(title: title, content: content, date: date, isStar: self.isStar)
         
         switch self.diaryEditorMode {
         case .new:
@@ -64,6 +65,7 @@ class WriteDiaryViewController: UIViewController {
             self.dateTextField.text = self.dateToString(date: diary.date)
             self.diaryDate = diary.date
             self.confirmButton.title = "수정"
+            self.isStar = diary.isStar
         default:
             break
         }

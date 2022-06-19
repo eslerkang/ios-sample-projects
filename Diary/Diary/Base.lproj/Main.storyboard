@@ -127,7 +127,7 @@
         <!--Star View Controller-->
         <scene sceneID="oi9-0u-xjL">
             <objects>
-                <viewController id="FED-mM-V9d" customClass="StarViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StarViewController" id="FED-mM-V9d" customClass="StarViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d5T-Pd-3Cz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,6 +174,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="80"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="afv-JL-oD1" id="ktN-RP-x5s"/>
+                                            <outlet property="titleLabel" destination="gZr-9M-me7" id="t6G-xZ-gVe"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -188,6 +192,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dqF-7S-JTq"/>
+                    <connections>
+                        <outlet property="collectionView" destination="X5R-FT-Aj2" id="XVJ-1k-QVP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8j-25-WmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
