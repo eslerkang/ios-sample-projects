@@ -25,6 +25,7 @@ class WriteDiaryViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
     private var isStar = false
+    private var uuidString: String?
     weak var delegate: WrtieDiaryViewDelegate?
     var diaryEditorMode: DiaryEditorMode = .new
     
@@ -32,16 +33,20 @@ class WriteDiaryViewController: UIViewController {
         guard let title = self.titleTextField.text else {return}
         guard let content = self.contentTextView.text else {return}
         guard let date = self.diaryDate else {return}
-        let diary = Diary(title: title, content: content, date: date, isStar: self.isStar)
-        
+        let diary = Diary(
+            uuidString: uuidString != nil ? uuidString! : UUID().uuidString,
+            title: title,
+            content: content,
+            date: date,
+            isStar: self.isStar
+        )
         switch self.diaryEditorMode {
         case .new:
             self.delegate?.didSelectRegister(diary: diary)
-        case let .edit(indexPath, _):
+        case .edit:
             NotificationCenter.default.post(
                 name: NSNotification.Name("editDiary"),
-                object: diary,
-                userInfo: ["indexPath.row": indexPath.row]
+                object: diary
             )
         }
         
@@ -66,6 +71,7 @@ class WriteDiaryViewController: UIViewController {
             self.diaryDate = diary.date
             self.confirmButton.title = "수정"
             self.isStar = diary.isStar
+            self.uuidString = diary.uuidString
         default:
             break
         }
