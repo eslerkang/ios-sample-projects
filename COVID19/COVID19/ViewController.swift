@@ -14,12 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalCaseLabel: UILabel!
     @IBOutlet weak var newCaseLabel: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pieChartView.noDataText = "데이터 불러오는 중..."
+        self.indicatorView.startAnimating()
+        self.pieChartView.noDataText = "데이터 불러오기 실패"
         self.fetchCovidOverview(completionHandler: { [weak self] result in
             guard let self = self else {return}
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            self.labelStackView.isHidden = false
+            self.pieChartView.isHidden = false
             switch result {
             case let .success(result):
                 self.configureStackView(koreaCovidOverview: result.korea)
@@ -74,6 +81,7 @@ class ViewController: UIViewController {
         self.pieChartView.data = PieChartData(dataSet: dataSet)
         self.pieChartView.spin(duration: 0.3, fromAngle: self.pieChartView.rotationAngle, toAngle: self.pieChartView.rotationAngle + 80)
         self.pieChartView.rotationEnabled = false
+        self.pieChartView.delegate = self
     }
     
     func removeFormatString(string: String) -> Double {
@@ -108,3 +116,11 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let covidDetailTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "CovidDetailTableViewController") as? CovidDetailTableViewController else {return}
+        guard let covidOverview = entry.data as? CovidOverview else {return}
+        covidDetailTableViewController.covidOverView = covidOverview
+        self.navigationController?.pushViewController(covidDetailTableViewController, animated: true)
+    }
+}
