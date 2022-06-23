@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pieChartView.noDataText = "데이터 불러오는 중..."
         self.fetchCovidOverview(completionHandler: { [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -89,6 +90,7 @@ class ViewController: UIViewController {
         ]
         
         AF.request(url, method: .get, parameters: param)
+            .validate()
             .responseData(completionHandler: { response in
                 switch response.result {
                 case let .success(data):
