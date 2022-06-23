@@ -236,7 +236,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-Aq-7d6">
-                                <rect key="frame" x="163.5" y="521" width="87" height="36"/>
+                                <rect key="frame" x="163.5" y="547" width="87" height="36"/>
                                 <color key="tintColor" systemColor="systemGray6Color"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃">
@@ -246,6 +246,17 @@
                                     <action selector="tapLogoutButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="wrW-qe-5O5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQG-jH-ERJ">
+                                <rect key="frame" x="146" y="491" width="122" height="36"/>
+                                <color key="tintColor" systemColor="systemGray6Color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="비밀번호 변경">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapChangePasswordButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="Nyk-Fp-1zA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9AV-Uy-4aT"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,10 +264,13 @@
                             <constraint firstItem="K79-Wb-8MO" firstAttribute="centerY" secondItem="9AV-Uy-4aT" secondAttribute="centerY" id="7YD-bm-eOd"/>
                             <constraint firstItem="CW2-Aq-7d6" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="AnE-aF-qts"/>
                             <constraint firstItem="K79-Wb-8MO" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="CNp-Ts-QQK"/>
-                            <constraint firstItem="CW2-Aq-7d6" firstAttribute="top" secondItem="K79-Wb-8MO" secondAttribute="bottom" constant="50" id="Ec0-3I-aVa"/>
+                            <constraint firstItem="CW2-Aq-7d6" firstAttribute="top" secondItem="QQG-jH-ERJ" secondAttribute="bottom" constant="20" id="EYj-YP-gdd"/>
+                            <constraint firstItem="QQG-jH-ERJ" firstAttribute="top" secondItem="K79-Wb-8MO" secondAttribute="bottom" constant="20" id="dex-xP-ZmY"/>
+                            <constraint firstItem="QQG-jH-ERJ" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="toI-Rk-Yhk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changePasswordButton" destination="QQG-jH-ERJ" id="9Gv-UW-Yl6"/>
                         <outlet property="welcomeLabel" destination="K79-Wb-8MO" id="uNO-J8-Gap"/>
                     </connections>
                 </viewController>

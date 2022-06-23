@@ -10,10 +10,10 @@ import FirebaseAuth
 
 class MainViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var changePasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
@@ -23,6 +23,9 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         self.configureWelcomeLabel()
+        
+        let isEmailSignin = Auth.auth().currentUser?.providerData[0].providerID == "password"
+        changePasswordButton.isHidden = !isEmailSignin
     }
     
     func configureWelcomeLabel() {
@@ -34,6 +37,16 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func tapLogoutButton(_ sender: UIButton) {
+        self.logout()
+    }
+    
+    @IBAction func tapChangePasswordButton(_ sender: UIButton) {
+        let email = Auth.auth().currentUser?.email ?? ""
+        Auth.auth().sendPasswordReset(withEmail: email, completion: nil)
+        self.logout()
+    }
+    
+    private func logout() {
         do {
             try Auth.auth().signOut()
             self.navigationController?.popToRootViewController(animated: true)
