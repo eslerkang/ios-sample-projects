@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -20,9 +21,24 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = true
+        
+        self.configureWelcomeLabel()
+    }
+    
+    func configureWelcomeLabel() {
+        let email = Auth.auth().currentUser?.email ?? "고객"
+        self.welcomeLabel.text = """
+        환영합니다.
+        \(email)님
+        """
     }
     
     @IBAction func tapLogoutButton(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        do {
+            try Auth.auth().signOut()
+            self.navigationController?.popToRootViewController(animated: true)
+        } catch let signoutError as NSError {
+            print("ERROR: \(signoutError.localizedDescription)")
+        }
     }
 }
