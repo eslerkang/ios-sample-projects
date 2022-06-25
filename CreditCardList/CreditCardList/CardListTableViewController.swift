@@ -7,9 +7,11 @@
 
 import UIKit
 import Kingfisher
+import FirebaseDatabase
 
 class CardListTableViewController: UITableViewController {
     var creditCardList: [CreditCard] = []
+    var ref: DatabaseReference! // Firebase realtime database reference
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +19,27 @@ class CardListTableViewController: UITableViewController {
         // UITableView Table Register
         let nibName = UINib(nibName: "CardListTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "CardListTableViewCell")
+        
+        self.ref = Database.database().reference()
+        self.ref.observe(.value, with: {snapShot in
+            guard let value = snapShot.value as? [String: [String: Any]] else {return}
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: value)
+                let cardData = try JSONDecoder().decode([String:CreditCard].self, from: jsonData)
+                let cardList = Array(cardData.values)
+                
+                self.creditCardList = cardList.sorted(by: {
+                    $0.rank < $1.rank
+                })
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch let error {
+                print("ERROR: JSON Parsing - \(error.localizedDescription)")
+            }
+        })
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.creditCardList.count
@@ -47,9 +63,39 @@ class CardListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cardId = creditCardList[indexPath.row].id
+        
+        // Option 1
+//        ref.child("Item\(cardId)/isSelected").setValue(true)
+    
+        // Option 2
+        ref.queryOrdered(byChild: "id").queryEqual(toValue: cardId).observe(.value) { [weak self] snapshot in
+            guard let self = self, let value = snapshot.value as? [String: [String: Any]], let key = value.keys.first else {return}
+            self.ref.child("\(key)/isSelected").setValue(true)
+        }
+        
         // 상세 화면 전달
         guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: "CardDetailViewController") as? CardDetailViewController else {return}
         detailViewController.promotionDetail = creditCardList[indexPath.row].promotionDetail
         show(detailViewController, sender: nil)
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Option 1
+            let cardId = creditCardList[indexPath.row].id
+            ref.child("Item\(cardId)").removeValue()
+            
+            // Option 2
+//            ref.queryOrdered(byChild: "id").queryEqual(toValue: cardId).observe(.value) { [weak self] snapshot in
+//                guard let self = self, let value = snapshot.value as? [String:[String:Any]], let key = value.keys.first else {return}
+//                ref.child(key).removeValue()
+//            }
+        }
+    }
+    
 }
