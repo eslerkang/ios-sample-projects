@@ -18,6 +18,7 @@
 		4C56B31528672A2300B27D57 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56B31428672A2300B27D57 /* CreditCard.swift */; };
 		4C56B31828672ADB00B27D57 /* CardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56B31628672ADB00B27D57 /* CardListTableViewCell.swift */; };
 		4C56B31928672ADB00B27D57 /* CardListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C56B31728672ADB00B27D57 /* CardListTableViewCell.xib */; };
+		4C7DD3942867665F00F30968 /* CreditCardDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7DD3932867665F00F30968 /* CreditCardDummy.swift */; };
 		4CA00346286736C000E5A51F /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA00345286736C000E5A51F /* CardDetailViewController.swift */; };
 		4CA003482867388F00E5A51F /* money.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CA003472867388F00E5A51F /* money.json */; };
 		F68F71D14B1EB80D5E00757E /* Pods_CreditCardList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3610742485CD731BCCB8949F /* Pods_CreditCardList.framework */; };
@@ -40,6 +41,7 @@
 		4C56B31428672A2300B27D57 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		4C56B31628672ADB00B27D57 /* CardListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListTableViewCell.swift; sourceTree = "<group>"; };
 		4C56B31728672ADB00B27D57 /* CardListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardListTableViewCell.xib; sourceTree = "<group>"; };
+		4C7DD3932867665F00F30968 /* CreditCardDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditCardDummy.swift; path = "../../../../Downloads/Part 3/Ch2_CreditCardList/CreditCardDummy.swift"; sourceTree = "<group>"; };
 		4CA00345286736C000E5A51F /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		4CA003472867388F00E5A51F /* money.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = money.json; path = "../../../../Downloads/Part 3/Ch2_CreditCardList/money.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				4C56B31728672ADB00B27D57 /* CardListTableViewCell.xib */,
 				4CA00345286736C000E5A51F /* CardDetailViewController.swift */,
 				4C30F0A32867410F008392FD /* GoogleService-Info.plist */,
+				4C7DD3932867665F00F30968 /* CreditCardDummy.swift */,
 			);
 			path = CreditCardList;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C56B303286728FD00B27D57 /* ViewController.swift in Sources */,
+				4C7DD3942867665F00F30968 /* CreditCardDummy.swift in Sources */,
 				4C56B31528672A2300B27D57 /* CreditCard.swift in Sources */,
 				4C56B2FF286728FD00B27D57 /* AppDelegate.swift in Sources */,
 				4C56B301286728FD00B27D57 /* SceneDelegate.swift in Sources */,
