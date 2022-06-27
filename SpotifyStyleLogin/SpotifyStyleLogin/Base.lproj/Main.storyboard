@@ -235,26 +235,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-Aq-7d6">
-                                <rect key="frame" x="163.5" y="547" width="87" height="36"/>
-                                <color key="tintColor" systemColor="systemGray6Color"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그아웃">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="tapLogoutButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="wrW-qe-5O5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQG-jH-ERJ">
-                                <rect key="frame" x="146" y="491" width="122" height="36"/>
-                                <color key="tintColor" systemColor="systemGray6Color"/>
+                                <rect key="frame" x="146" y="511" width="122" height="36"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="비밀번호 변경">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapChangePasswordButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="Nyk-Fp-1zA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n86-9U-waB">
+                                <rect key="frame" x="138" y="567" width="138" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="닉네임 업데이트">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapProfileUpdateButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="ncp-bo-K8R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW2-Aq-7d6">
+                                <rect key="frame" x="163.5" y="623" width="87" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그아웃">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapLogoutButton:" destination="z8g-Jh-lSz" eventType="touchUpInside" id="wrW-qe-5O5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -264,8 +272,10 @@
                             <constraint firstItem="K79-Wb-8MO" firstAttribute="centerY" secondItem="9AV-Uy-4aT" secondAttribute="centerY" id="7YD-bm-eOd"/>
                             <constraint firstItem="CW2-Aq-7d6" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="AnE-aF-qts"/>
                             <constraint firstItem="K79-Wb-8MO" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="CNp-Ts-QQK"/>
-                            <constraint firstItem="CW2-Aq-7d6" firstAttribute="top" secondItem="QQG-jH-ERJ" secondAttribute="bottom" constant="20" id="EYj-YP-gdd"/>
-                            <constraint firstItem="QQG-jH-ERJ" firstAttribute="top" secondItem="K79-Wb-8MO" secondAttribute="bottom" constant="20" id="dex-xP-ZmY"/>
+                            <constraint firstItem="CW2-Aq-7d6" firstAttribute="top" secondItem="n86-9U-waB" secondAttribute="bottom" constant="20" id="PYf-TG-6IZ"/>
+                            <constraint firstItem="n86-9U-waB" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="Qz2-2K-uvw"/>
+                            <constraint firstItem="QQG-jH-ERJ" firstAttribute="top" secondItem="K79-Wb-8MO" secondAttribute="bottom" constant="40" id="dex-xP-ZmY"/>
+                            <constraint firstItem="n86-9U-waB" firstAttribute="top" secondItem="QQG-jH-ERJ" secondAttribute="bottom" constant="20" id="fG3-zV-Fxe"/>
                             <constraint firstItem="QQG-jH-ERJ" firstAttribute="centerX" secondItem="9AV-Uy-4aT" secondAttribute="centerX" id="toI-Rk-Yhk"/>
                         </constraints>
                     </view>
@@ -284,9 +294,6 @@
         <image name="logo_apple" width="33.333332061767578" height="33.333332061767578"/>
         <image name="logo_google" width="33.333332061767578" height="33.333332061767578"/>
         <image name="music.note.house.fill" catalog="system" width="128" height="106"/>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

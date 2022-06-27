@@ -29,10 +29,10 @@ class MainViewController: UIViewController {
     }
     
     func configureWelcomeLabel() {
-        let email = Auth.auth().currentUser?.email ?? "고객"
+        let displayName = Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email ?? "고객"
         self.welcomeLabel.text = """
         환영합니다.
-        \(email)님
+        \(displayName)님
         """
     }
     
@@ -44,6 +44,19 @@ class MainViewController: UIViewController {
         let email = Auth.auth().currentUser?.email ?? ""
         Auth.auth().sendPasswordReset(withEmail: email, completion: nil)
         self.logout()
+    }
+    
+    @IBAction func tapProfileUpdateButton(_ sender: UIButton) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = "토끼"
+        changeRequest?.commitChanges(completion: { [weak self] _ in
+            let displayName = Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email ?? "고객"
+            
+            self?.welcomeLabel.text = """
+            환영합니다.
+            \(displayName)님
+            """
+        })
     }
     
     private func logout() {
