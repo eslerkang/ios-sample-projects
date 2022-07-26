@@ -1,13 +1,11 @@
 //
 //  AppDelegate.swift
-//  NoticeFirebase
+//  Drink
 //
-//  Created by 강태준 on 2022/07/21.
+//  Created by 강태준 on 2022/07/26.
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseInstallations
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,18 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        FirebaseApp.configure()
-        
-        Installations.installations().authTokenForcingRefresh(true) { result, error in
-            if let error = error {
-                print("ERROR")
-                return
-            }
-            
-            guard let result = result else {return}
-            print("Installation auth token: \(result.authToken)")
-        }
         return true
     }
 
