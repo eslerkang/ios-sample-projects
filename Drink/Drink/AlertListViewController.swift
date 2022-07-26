@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlertListViewController: UITableViewController {
     
     var alertList = [Alert]()
+    let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class AlertListViewController: UITableViewController {
             self.alertList = alertList
             
             self.setAlertList()
+            self.notificationCenter.addNotificationRequest(by: newAlert)
             
             self.tableView.reloadData()
         }
@@ -102,6 +105,7 @@ extension AlertListViewController {
         switch editingStyle {
         case .delete:
             // notification delete
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: [alertList[indexPath.row].id])
             self.alertList.remove(at: indexPath.row)
             setAlertList()
             self.tableView.reloadData()
