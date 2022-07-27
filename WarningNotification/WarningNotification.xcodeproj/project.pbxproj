@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		326F9453B42AD8E08973D206 /* Pods-WarningNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WarningNotification.debug.xcconfig"; path = "Target Support Files/Pods-WarningNotification/Pods-WarningNotification.debug.xcconfig"; sourceTree = "<group>"; };
+		4CB7152B2891209900DAA7D1 /* WarningNotification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WarningNotification.entitlements; sourceTree = "<group>"; };
 		4CF5A5F628911F69001B5199 /* WarningNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarningNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF5A5F928911F69001B5199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF5A5FB28911F69001B5199 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		4CF5A5F828911F69001B5199 /* WarningNotification */ = {
 			isa = PBXGroup;
 			children = (
+				4CB7152B2891209900DAA7D1 /* WarningNotification.entitlements */,
 				4CF5A5F928911F69001B5199 /* AppDelegate.swift */,
 				4CF5A5FB28911F69001B5199 /* SceneDelegate.swift */,
 				4CF5A5FD28911F69001B5199 /* ViewController.swift */,
@@ -91,7 +93,6 @@
 				326F9453B42AD8E08973D206 /* Pods-WarningNotification.debug.xcconfig */,
 				8CC7900E3F16D5FA1DA926A6 /* Pods-WarningNotification.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -359,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WarningNotification/WarningNotification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37GVH438CS;
@@ -388,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WarningNotification/WarningNotification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37GVH438CS;
