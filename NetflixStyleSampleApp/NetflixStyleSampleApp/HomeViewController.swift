@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import SnapKit
+import SwiftUI
 
 class HomeViewController: UICollectionViewController {
     var contents: [Content] = []
-    let contentCollectionViewCellIdentifier = "ContentCollectionViewCell"
-    let contentCollectionViewHeaderIdentifier = "ContentCollectionViewHeader"
+    let cellIdentifier = "ContentCollectionViewCell"
+    let headerIdentifier = "ContentCollectionViewHeader"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +19,15 @@ class HomeViewController: UICollectionViewController {
         configureNavigationController()
         
         contents = getContents()
-        
+
         collectionView.register(
             ContentCollectionViewCell.self,
-            forCellWithReuseIdentifier: contentCollectionViewCellIdentifier
+            forCellWithReuseIdentifier: cellIdentifier
         )
         collectionView.register(
             ContentCollectionViewHeader.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: contentCollectionViewHeaderIdentifier
+            withReuseIdentifier: headerIdentifier
         )
     }
     
@@ -68,7 +68,10 @@ extension HomeViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch contents[indexPath.section].sectionType {
         case .basic, .large:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: contentCollectionViewCellIdentifier, for: indexPath) as? ContentCollectionViewCell else {return UICollectionViewCell()}
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: cellIdentifier,
+                for: indexPath
+            ) as? ContentCollectionViewCell else {return UICollectionViewCell()}
             cell.imageView.image = contents[indexPath.section].contentItem[indexPath.row].image
             return cell
         default:
@@ -87,11 +90,37 @@ extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: contentCollectionViewHeaderIdentifier, for: indexPath) as? ContentCollectionViewHeader else {fatalError("Could not dequeue header")}
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: headerIdentifier,
+                for: indexPath
+            ) as? ContentCollectionViewHeader else {fatalError("Could not dequeue header")}
             headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
             return headerView
         } else {
             return UICollectionReusableView()
         }
+    }
+}
+
+
+// SwiftUI Preview
+struct HomeViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
+    }
+    
+    struct Container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            let layout = UICollectionViewLayout()
+            let homeViewController = HomeViewController(collectionViewLayout: layout)
+            return UINavigationController(rootViewController: homeViewController)
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+            print("updated")
+        }
+        
+        typealias UIViewControllerType = UIViewController
     }
 }
