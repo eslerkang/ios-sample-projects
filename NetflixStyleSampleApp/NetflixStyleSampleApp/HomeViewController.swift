@@ -10,17 +10,22 @@ import SwiftUI
 
 class HomeViewController: UICollectionViewController {
     var contents: [Content] = []
+    var mainItem: Item?
+    
     let cellIdentifier = "ContentCollectionViewCell"
     let headerIdentifier = "ContentCollectionViewHeader"
     let rankCellIdentifier = "ContentCollectionViewRankCell"
+    let mainCellIdentifier = "ContentCollectionViewMainCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureNavigationController()
-        
-        contents = getContents()
-        
+        configureContentAndMainItem()
+        configureCollectionView()
+    }
+    
+    private func configureCollectionView() {
         collectionView.backgroundColor = .black
         collectionView.register(
             ContentCollectionViewCell.self,
@@ -35,8 +40,17 @@ class HomeViewController: UICollectionViewController {
             ContentCollectionViewRankCell.self,
             forCellWithReuseIdentifier: rankCellIdentifier
         )
+        collectionView.register(
+            ContentCollectionViewMainCell.self,
+            forCellWithReuseIdentifier: mainCellIdentifier
+        )
         
         collectionView.collectionViewLayout = layout()
+    }
+    
+    private func configureContentAndMainItem() {
+        contents = getContents()
+        mainItem = contents.first?.contentItem.randomElement()
     }
     
     private func configureNavigationController() {
@@ -72,10 +86,30 @@ class HomeViewController: UICollectionViewController {
                 return self.createLargeTypeSection()
             case .rank:
                 return self.createRankTypeSection()
-            default:
-                return nil
+            case .main:
+                return self.createMainTypeSection()
             }
         }
+    }
+    
+    // Main Section
+    private func createMainTypeSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(450)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
+        
+        return section
     }
     
     private func createBasicTypeSection() -> NSCollectionLayoutSection {
@@ -166,18 +200,12 @@ class HomeViewController: UICollectionViewController {
 // UICollectionView Datasource, Delegate
 extension HomeViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if contents[section].sectionType == .basic
-            || contents[section].sectionType == .large
-            || contents[section].sectionType == .rank {
-            switch contents[section].sectionType {
-            case .main:
-                return 1
-            default:
-                return contents[section].contentItem.count
-            }
+        switch contents[section].sectionType {
+        case .main:
+            return 1
+        default:
+            return contents[section].contentItem.count
         }
-        return 0
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -194,8 +222,11 @@ extension HomeViewController {
             cell.imageView.image = contents[indexPath.section].contentItem[indexPath.row].image
             cell.rankLabel.text = String(describing: indexPath.row + 1)
             return cell
-        default:
-            return UICollectionViewCell()
+        case .main:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainCellIdentifier, for: indexPath) as? ContentCollectionViewMainCell else {return UICollectionViewCell()}
+            cell.imageView.image = mainItem?.image
+            cell.descriptionLabel.text = mainItem?.description
+            return cell
         }
     }
     
