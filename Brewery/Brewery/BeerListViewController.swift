@@ -12,6 +12,7 @@ import SnapKit
 class BeerListViewController: UITableViewController {
     var beerList = [Beer]()
     var currentPage = 1
+    var dataTasks = [URLSessionTask]()
     
     let cellIdentifier = "BeerListCell"
     
@@ -27,6 +28,8 @@ class BeerListViewController: UITableViewController {
     func configureTableView() {
         tableView.register(BeerListCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 150
+        
+        tableView.prefetchDataSource = self
     }
     
     func configureNavigaztionBar() {
@@ -60,7 +63,9 @@ extension BeerListViewController {
 
 private extension BeerListViewController {
     func fetchBeer(of page: Int) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(page)") else {return}
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(page)"),
+              dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil
+        else {return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -102,5 +107,19 @@ private extension BeerListViewController {
         }
         
         dataTask.resume()
+        dataTasks.append(dataTask)
+    }
+}
+
+
+extension BeerListViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard currentPage != 1 else {return}
+        
+        indexPaths.forEach {
+            if($0.row + 1) / 25 + 1 == currentPage {
+                self.fetchBeer(of: currentPage)
+            }
+        }
     }
 }
