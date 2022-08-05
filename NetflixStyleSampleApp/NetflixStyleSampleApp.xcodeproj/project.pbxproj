@@ -17,6 +17,8 @@
 		4C1B485C289512D800DCDBE4 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B485B289512D800DCDBE4 /* Content.swift */; };
 		4C1B485E289572C500DCDBE4 /* ContentCollcetionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B485D289572C500DCDBE4 /* ContentCollcetionViewCell.swift */; };
 		4C1B48602895747700DCDBE4 /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B485F2895747700DCDBE4 /* ContentCollectionViewHeader.swift */; };
+		4C3E783A289920AE00269EDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E7839289920AE00269EDA /* ContentView.swift */; };
+		4C3E783E2899228800269EDA /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E783D2899228800269EDA /* ContentDetailView.swift */; };
 		4C5E5DD42897A32400B6107D /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E5DD32897A32400B6107D /* ContentCollectionViewRankCell.swift */; };
 		4C5E5DD62897A9AE00B6107D /* ContentCollectionViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E5DD52897A9AE00B6107D /* ContentCollectionViewMainCell.swift */; };
 		4CD443592897EED800F6121F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD443582897EED800F6121F /* UIButton.swift */; };
@@ -34,6 +36,8 @@
 		4C1B485B289512D800DCDBE4 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		4C1B485D289572C500DCDBE4 /* ContentCollcetionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollcetionViewCell.swift; sourceTree = "<group>"; };
 		4C1B485F2895747700DCDBE4 /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
+		4C3E7839289920AE00269EDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4C3E783D2899228800269EDA /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		4C5E5DD32897A32400B6107D /* ContentCollectionViewRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewRankCell.swift; sourceTree = "<group>"; };
 		4C5E5DD52897A9AE00B6107D /* ContentCollectionViewMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewMainCell.swift; sourceTree = "<group>"; };
 		4CD443582897EED800F6121F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				4C5E5DD32897A32400B6107D /* ContentCollectionViewRankCell.swift */,
 				4C5E5DD52897A9AE00B6107D /* ContentCollectionViewMainCell.swift */,
 				4CD443582897EED800F6121F /* UIButton.swift */,
+				4C3E7839289920AE00269EDA /* ContentView.swift */,
+				4C3E783D2899228800269EDA /* ContentDetailView.swift */,
 			);
 			path = NetflixStyleSampleApp;
 			sourceTree = "<group>";
@@ -165,11 +171,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1B484128950EA800DCDBE4 /* AppDelegate.swift in Sources */,
+				4C3E783E2899228800269EDA /* ContentDetailView.swift in Sources */,
 				4C1B48602895747700DCDBE4 /* ContentCollectionViewHeader.swift in Sources */,
 				4C1B485E289572C500DCDBE4 /* ContentCollcetionViewCell.swift in Sources */,
 				4C5E5DD42897A32400B6107D /* ContentCollectionViewRankCell.swift in Sources */,
 				4C1B484328950EA800DCDBE4 /* SceneDelegate.swift in Sources */,
 				4C5E5DD62897A9AE00B6107D /* ContentCollectionViewMainCell.swift in Sources */,
+				4C3E783A289920AE00269EDA /* ContentView.swift in Sources */,
 				4C1B485528950F1200DCDBE4 /* HomeViewController.swift in Sources */,
 				4C1B485C289512D800DCDBE4 /* Content.swift in Sources */,
 				4CD443592897EED800F6121F /* UIButton.swift in Sources */,
