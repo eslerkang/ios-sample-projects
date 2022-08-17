@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C181C9128ACD16C0081BB98 /* NavigationBarWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C9028ACD16C0081BB98 /* NavigationBarWithButton.swift */; };
 		4C48F7DD28A913C20004D0B2 /* MyAssetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48F7DC28A913C20004D0B2 /* MyAssetApp.swift */; };
 		4C48F7DF28A913C20004D0B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48F7DE28A913C20004D0B2 /* ContentView.swift */; };
 		4C48F7E128A913C30004D0B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C48F7E028A913C30004D0B2 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C181C9028ACD16C0081BB98 /* NavigationBarWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithButton.swift; sourceTree = "<group>"; };
 		4C48F7D928A913C20004D0B2 /* MyAsset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAsset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C48F7DC28A913C20004D0B2 /* MyAssetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAssetApp.swift; sourceTree = "<group>"; };
 		4C48F7DE28A913C20004D0B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				4C48F7DC28A913C20004D0B2 /* MyAssetApp.swift */,
 				4C48F7DE28A913C20004D0B2 /* ContentView.swift */,
+				4C181C9028ACD16C0081BB98 /* NavigationBarWithButton.swift */,
 				4C48F7E028A913C30004D0B2 /* Assets.xcassets */,
 				4C48F7E228A913C30004D0B2 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C181C9128ACD16C0081BB98 /* NavigationBarWithButton.swift in Sources */,
 				4C48F7DF28A913C20004D0B2 /* ContentView.swift in Sources */,
 				4C48F7DD28A913C20004D0B2 /* MyAssetApp.swift in Sources */,
 			);
