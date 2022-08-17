@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C181C8228ACA18D0081BB98 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C8128ACA18D0081BB98 /* FavoriteButton.swift */; };
+		4C181C8628ACA4310081BB98 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C8528ACA4310081BB98 /* HexagonParameters.swift */; };
 		4C7FEF9428AA222F00850519 /* SwiftUITutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FEF9328AA222F00850519 /* SwiftUITutorialApp.swift */; };
 		4C7FEF9628AA222F00850519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FEF9528AA222F00850519 /* ContentView.swift */; };
 		4C7FEF9828AA223100850519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7FEF9728AA223100850519 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		4C181C8128ACA18D0081BB98 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		4C181C8528ACA4310081BB98 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HexagonParameters.swift; path = Landmarks/HexagonParameters.swift; sourceTree = "<group>"; };
 		4C7FEF9028AA222F00850519 /* SwiftUITutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7FEF9328AA222F00850519 /* SwiftUITutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITutorialApp.swift; sourceTree = "<group>"; };
 		4C7FEF9528AA222F00850519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		4C7FEFB028AA2D7600850519 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C181C8528ACA4310081BB98 /* HexagonParameters.swift */,
 				4C181C8428ACA2670081BB98 /* Helpers */,
 				4C181C8328ACA25C0081BB98 /* Landmarks */,
 				4C7FEF9528AA222F00850519 /* ContentView.swift */,
@@ -209,6 +212,7 @@
 				4C7FEFA428AA26C100850519 /* MapView.swift in Sources */,
 				4C7FEF9428AA222F00850519 /* SwiftUITutorialApp.swift in Sources */,
 				4C181C8228ACA18D0081BB98 /* FavoriteButton.swift in Sources */,
+				4C181C8628ACA4310081BB98 /* HexagonParameters.swift in Sources */,
 				4CE75A0428AA905000D4D1AF /* LandmarkList.swift in Sources */,
 				4CE75A0628AA916600D4D1AF /* LandmarkDetail.swift in Sources */,
 				4C7FEFA228AA259A00850519 /* CircleImage.swift in Sources */,
