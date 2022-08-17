@@ -26,16 +26,16 @@ struct NavigationBarWithButton: ViewModifier {
                         print("clicked asset plus button")
                     }, label: {
                         Image(systemName: "plus")
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(.system(size: 12, weight: .semibold))
                         Text("자산 추가")
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(.system(size: 12, weight: .semibold))
                     }
                 )
                 .accentColor(.black)
                 .padding(EdgeInsets(
-                    top: 10,
+                    top: 8,
                     leading: 5,
-                    bottom: 10,
+                    bottom: 8,
                     trailing: 15)
                 )
                 .overlay(
