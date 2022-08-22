@@ -14,10 +14,12 @@ struct AssetView: View {
                 VStack {
                     Spacer()
                     AssetMenuGridView()
+                    AssetBannerView()
+                        .aspectRatio(2, contentMode: .fit)
                 }
             }
             .background(.gray.opacity(0.2))
-            .navigationBarWithButton(title: "내 자산 ")
+            .navigationBarWithButton(title: "내 자산")
         }
     }
 }
