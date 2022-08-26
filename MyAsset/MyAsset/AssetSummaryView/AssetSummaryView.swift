@@ -17,7 +17,13 @@ struct AssetSummaryView: View {
     var body: some View {
         VStack(spacing: 20) {
             ForEach(assets) { asset in
-                AssetSectionView(assetSection: asset)
+                switch asset.type {
+                case .creditCard:
+                    AssetCardSectionView(asset: asset)
+                        .frame(idealHeight: 300)
+                default:
+                    AssetSectionView(assetSection: asset)
+                }
             }
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
