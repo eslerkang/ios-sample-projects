@@ -25,9 +25,9 @@ class AssetData: Identifiable, ObservableObject, Codable {
     let id: Int
     let title: String
     let amount: String
-    let creditCardAmounts: [CreditCardAmount]?
+    let creditCardAmounts: [CreditCardAmounts]?
     
-    init(id: Int, title: String, amount: String, creditCardAmounts: [CreditCardAmount]? = nil) {
+    init(id: Int, title: String, amount: String, creditCardAmounts: [CreditCardAmounts]? = nil) {
         self.id = id
         self.title = title
         self.amount = amount
@@ -36,7 +36,7 @@ class AssetData: Identifiable, ObservableObject, Codable {
 }
 
 
-enum CreditCardAmount: Identifiable, Codable {
+enum CreditCardAmounts: Identifiable, Codable {
     case previousMonth(amount: String)
     case currentMonth(amount: String)
     case nextMonth(amount: String)

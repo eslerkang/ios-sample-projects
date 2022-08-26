@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C11D8EE28B89B10009FCE1C /* TabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C11D8ED28B89B10009FCE1C /* TabMenuView.swift */; };
 		4C181C9128ACD16C0081BB98 /* NavigationBarWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C9028ACD16C0081BB98 /* NavigationBarWithButton.swift */; };
 		4C181C9328ACD84A0081BB98 /* AssetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C9228ACD84A0081BB98 /* AssetMenu.swift */; };
 		4C181C9528ACDBE90081BB98 /* AssetMenuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181C9428ACDBE90081BB98 /* AssetMenuButtonStyle.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C11D8ED28B89B10009FCE1C /* TabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuView.swift; sourceTree = "<group>"; };
 		4C181C9028ACD16C0081BB98 /* NavigationBarWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithButton.swift; sourceTree = "<group>"; };
 		4C181C9228ACD84A0081BB98 /* AssetMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenu.swift; sourceTree = "<group>"; };
 		4C181C9428ACDBE90081BB98 /* AssetMenuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMenuButtonStyle.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				4C7DCD5628B3AE2700926C84 /* AssetSectionHeaderView.swift */,
 				4C7DCD5828B3AEB300926C84 /* AssetSectionView.swift */,
 				4C7DCD5A28B3B01200926C84 /* AssetSummaryView.swift */,
+				4C11D8ED28B89B10009FCE1C /* TabMenuView.swift */,
 			);
 			path = AssetSummaryView;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				4C181C9B28ACEA040081BB98 /* AssetBanner.swift in Sources */,
 				4C181C9928ACE6580081BB98 /* AssetView.swift in Sources */,
 				4C48F7DF28A913C20004D0B2 /* ContentView.swift in Sources */,
+				4C11D8EE28B89B10009FCE1C /* TabMenuView.swift in Sources */,
 				4C48F7DD28A913C20004D0B2 /* MyAssetApp.swift in Sources */,
 				4C181C9328ACD84A0081BB98 /* AssetMenu.swift in Sources */,
 				4C73A4CC28B3909400602658 /* PageControl.swift in Sources */,
