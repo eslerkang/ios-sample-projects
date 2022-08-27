@@ -19,11 +19,21 @@ final class AppViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 0.0
         
-        let featureSectionView = FeatureSectionView()
-        let rankingFeatureSectionView = UIView()
-        let exchangeCodeButtonView = UIView()
+        let featureSectionView = FeatureSectionView(frame: .zero)
+        let rankingFeatureSectionView = RankingFeatureSectionView()
+        let exchangeCodeButtonView = ExchangeCodeButtonView()
+        let spacingView = UIView()
         
-        [featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView].forEach {
+        spacingView.snp.makeConstraints {
+            $0.height.equalTo(100)
+        }
+        
+        [
+            featureSectionView,
+            rankingFeatureSectionView,
+            exchangeCodeButtonView,
+            spacingView
+        ].forEach {
             stackView.addArrangedSubview($0)
         }
         
