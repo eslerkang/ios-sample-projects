@@ -26,8 +26,8 @@ final class TodayCollectionViewHeader: UICollectionReusableView {
     }()
     
     func setup() {
-        dateLabel.text = "date"
-        titleLabel.text = "title"
+        dateLabel.text = todayToString()
+        titleLabel.text = "투데이"
         
         [dateLabel, titleLabel].forEach {
             addSubview($0)
@@ -43,6 +43,14 @@ final class TodayCollectionViewHeader: UICollectionReusableView {
             $0.leading.equalTo(dateLabel)
             $0.top.equalTo(dateLabel.snp.bottom).offset(8)
         }
+    }
+    
+    private func todayToString() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "M월 dd일 EEEE"
+        return formatter.string(from: date)
     }
 }
 

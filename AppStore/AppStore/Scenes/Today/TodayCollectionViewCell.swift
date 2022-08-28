@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 
 final class TodayCollectionViewCell: UICollectionViewCell {
@@ -36,21 +37,26 @@ final class TodayCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
-        imageView.backgroundColor = .gray
         
         return imageView
     }()
     
-    func setup() {
+    func setup(today: Today) {
         setupSubViews()
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowRadius = 10
         
-        subTitleLabel.text = "subtitle"
-        titleLabel.text = "title"
-        descriptionLabel.text = "description"
+        subTitleLabel.text = today.subTitle
+        titleLabel.text = today.title
+        descriptionLabel.text = today.description
+        
+        if let imageURL = URL(string: today.imageURL) {
+            imageView.kf.setImage(with: imageURL)
+        } else {
+            imageView.backgroundColor = .tertiarySystemGroupedBackground
+        }
     }
 }
 

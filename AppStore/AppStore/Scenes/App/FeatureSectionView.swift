@@ -10,6 +10,7 @@ import SnapKit
 
 
 final class FeatureSectionView: UIView {
+    private var featureList = [Feature]()
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -32,6 +33,8 @@ final class FeatureSectionView: UIView {
         super.init(frame: frame)
         
         setupView()
+        fetchData()
+        collectionView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +45,7 @@ final class FeatureSectionView: UIView {
 
 extension FeatureSectionView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return featureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,7 +54,7 @@ extension FeatureSectionView: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
         
-        cell.setup()
+        cell.setup(feature: featureList[indexPath.row])
         
         return cell
     }
@@ -72,6 +75,21 @@ extension FeatureSectionView: UICollectionViewDataSource, UICollectionViewDelega
 
 
 private extension FeatureSectionView {
+    func fetchData() {
+        guard let url = Bundle.main.url(forResource: "Feature", withExtension: "plist")
+        else {
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            featureList = try decoder.decode([Feature].self, from: data)
+        } catch {
+            print("ERROR: \(String(describing: error.localizedDescription))")
+        }
+    }
+    
     func setupView() {
         [
             collectionView,
@@ -81,7 +99,7 @@ private extension FeatureSectionView {
         }
         
         collectionView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(16)
             $0.height.equalTo(snp.width)
         }

@@ -10,6 +10,7 @@ import SnapKit
 
 
 final class AppDetailViewController: UIViewController {
+    private let today: Today
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .bold)
@@ -20,6 +21,7 @@ final class AppDetailViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textColor = .secondaryLabel
+        label.numberOfLines = 2
         
         return label
     }()
@@ -49,6 +51,16 @@ final class AppDetailViewController: UIViewController {
         return button
     }()
     
+    init(today: Today) {
+        self.today = today
+
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,9 +68,13 @@ final class AppDetailViewController: UIViewController {
         
         setupLayout()
         
-        titleLabel.text = "title"
-        descriptionLabel.text = "description"
-        imageView.backgroundColor = .lightGray
+        titleLabel.text = today.title
+        descriptionLabel.text = today.description
+        if let imageURL = URL(string: today.imageURL) {
+            imageView.kf.setImage(with: imageURL)
+        } else {
+            imageView.backgroundColor = .lightGray
+        }
     }
 }
 

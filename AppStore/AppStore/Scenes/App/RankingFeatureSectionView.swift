@@ -10,6 +10,7 @@ import SnapKit
 
 
 final class RankingFeatureSectionView: UIView {
+    private var rankingFeatureList = [RankingFeature]()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .black)
@@ -48,8 +49,9 @@ final class RankingFeatureSectionView: UIView {
         super.init(frame: frame)
         
         setupView()
+        fetchData()
         
-        titleLabel.text = "Header title"
+        titleLabel.text = "iPhone이 처음이라면"
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +61,22 @@ final class RankingFeatureSectionView: UIView {
 
 
 private extension RankingFeatureSectionView {
+    func fetchData() {
+        guard let url = Bundle.main.url(forResource: "RankingFeature", withExtension: "plist")
+        else {
+            return
+        }
+        
+        let decoder = PropertyListDecoder()
+        
+        do {
+            let data = try Data(contentsOf: url)
+            rankingFeatureList = try decoder.decode([RankingFeature].self, from: data)
+        } catch {
+            print("ERROR: \(String(describing: error.localizedDescription))")
+        }
+    }
+    
     func setupView() {
         [
             titleLabel,
@@ -97,7 +115,7 @@ private extension RankingFeatureSectionView {
 
 extension RankingFeatureSectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return rankingFeatureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,7 +124,7 @@ extension RankingFeatureSectionView: UICollectionViewDelegateFlowLayout, UIColle
             return UICollectionViewCell()
         }
         
-        cell.setup()
+        cell.setup(rankingFeature: rankingFeatureList[indexPath.row])
         
         return cell
     }

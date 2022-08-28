@@ -10,6 +10,7 @@ import SnapKit
 
 
 final class TodayViewController: UIViewController {
+    private var todayList: [Today] = []
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -36,13 +37,34 @@ final class TodayViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        fetchData()
+        collectionView.reloadData()
+    }
+}
+
+
+private extension TodayViewController {
+    func fetchData() {
+        guard let url = Bundle.main.url(forResource: "Today", withExtension: "plist")
+        else {
+            return
+        }
+                
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            todayList = try decoder.decode([Today].self, from: data)
+        } catch {
+            print("ERROR: \(String(describing: error.localizedDescription))")
+        }
     }
 }
 
 
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return todayList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,7 +76,7 @@ extension TodayViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setup()
+        cell.setup(today: todayList[indexPath.row])
         
         return cell
     }
@@ -95,7 +117,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let appDetailViewController = AppDetailViewController()
+        let appDetailViewController = AppDetailViewController(today: todayList[indexPath.row])
         
         present(appDetailViewController, animated: true)
     }

@@ -52,12 +52,12 @@ final class RankingFeatureSectionCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func setup() {
+    func setup(rankingFeature: RankingFeature) {
         setupLayout()
         
-        titleLabel.text = "title"
-        descriptionLabel.text = "description"
-        inAppPurchaseLabel.isHidden = [true, false].randomElement() ?? true
+        titleLabel.text = rankingFeature.title
+        descriptionLabel.text = rankingFeature.description
+        inAppPurchaseLabel.isHidden = rankingFeature.isInPurchaseApp
         imageView.backgroundColor = .tertiarySystemGroupedBackground
     }
 }
