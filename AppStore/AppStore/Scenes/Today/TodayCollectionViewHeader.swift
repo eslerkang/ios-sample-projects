@@ -26,8 +26,8 @@ final class TodayCollectionViewHeader: UICollectionReusableView {
     }()
     
     func setup() {
-        dateLabel.text = "22년 09월 01일"
-        titleLabel.text = "랄라라라라ㅏ"
+        dateLabel.text = "date"
+        titleLabel.text = "title"
         
         [dateLabel, titleLabel].forEach {
             addSubview($0)

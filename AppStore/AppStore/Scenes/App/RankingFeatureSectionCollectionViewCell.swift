@@ -17,7 +17,6 @@ final class RankingFeatureSectionCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 7
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.separator.cgColor
-        imageView.backgroundColor = .tertiarySystemGroupedBackground
         
         return imageView
     }()
@@ -56,9 +55,10 @@ final class RankingFeatureSectionCollectionViewCell: UICollectionViewCell {
     func setup() {
         setupLayout()
         
-        titleLabel.text = "오이마켓"
-        descriptionLabel.text = "집에서 잠자고 있는 물건들을 꺼내볼까요?"
+        titleLabel.text = "title"
+        descriptionLabel.text = "description"
         inAppPurchaseLabel.isHidden = [true, false].randomElement() ?? true
+        imageView.backgroundColor = .tertiarySystemGroupedBackground
     }
 }
 

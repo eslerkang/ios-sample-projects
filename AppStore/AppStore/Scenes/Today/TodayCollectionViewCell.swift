@@ -48,9 +48,9 @@ final class TodayCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         layer.shadowRadius = 10
         
-        subTitleLabel.text = "하루에 2L 도전해보세요"
-        titleLabel.text = "물 마시기 운동"
-        descriptionLabel.text = "가장 간단하게 건강을 챙기는 방법!"
+        subTitleLabel.text = "subtitle"
+        titleLabel.text = "title"
+        descriptionLabel.text = "description"
     }
 }
 

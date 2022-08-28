@@ -48,7 +48,8 @@ final class RankingFeatureSectionView: UIView {
         super.init(frame: frame)
         
         setupView()
-        titleLabel.text = "iPhone이 처음이라면"
+        
+        titleLabel.text = "Header title"
     }
     
     required init?(coder: NSCoder) {
