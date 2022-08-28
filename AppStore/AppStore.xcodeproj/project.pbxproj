@@ -23,6 +23,9 @@
 		4C27A77F28BB2CC200472C83 /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A77E28BB2CC200472C83 /* Today.swift */; };
 		4C27A78128BB2D1100472C83 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A78028BB2D1100472C83 /* Feature.swift */; };
 		4C27A78328BB2D3F00472C83 /* RankingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A78228BB2D3F00472C83 /* RankingFeature.swift */; };
+		4C27A78728BB398F00472C83 /* AppViewControllerByCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A78628BB398F00472C83 /* AppViewControllerByCollectionView.swift */; };
+		4C27A78A28BB3A4400472C83 /* FeatureSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A78928BB3A4400472C83 /* FeatureSectionCell.swift */; };
+		4C27A78C28BB3E5300472C83 /* RankingFeatureSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27A78B28BB3E5300472C83 /* RankingFeatureSectionCell.swift */; };
 		4C43CB4728BA54E800A52B53 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43CB4628BA54E800A52B53 /* AppViewController.swift */; };
 		4C43CB4928BA590800A52B53 /* FeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43CB4828BA590800A52B53 /* FeatureSectionView.swift */; };
 		4C43CB4B28BA6C3100A52B53 /* FeatureSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43CB4A28BA6C3100A52B53 /* FeatureSectionCollectionViewCell.swift */; };
@@ -50,6 +53,9 @@
 		4C27A78028BB2D1100472C83 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		4C27A78228BB2D3F00472C83 /* RankingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeature.swift; sourceTree = "<group>"; };
 		4C27A78428BB2FDA00472C83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C27A78628BB398F00472C83 /* AppViewControllerByCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewControllerByCollectionView.swift; sourceTree = "<group>"; };
+		4C27A78928BB3A4400472C83 /* FeatureSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionCell.swift; sourceTree = "<group>"; };
+		4C27A78B28BB3E5300472C83 /* RankingFeatureSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFeatureSectionCell.swift; sourceTree = "<group>"; };
 		4C43CB4628BA54E800A52B53 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		4C43CB4828BA590800A52B53 /* FeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionView.swift; sourceTree = "<group>"; };
 		4C43CB4A28BA6C3100A52B53 /* FeatureSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 				4C43CB4E28BA731A00A52B53 /* RankingFeatureSectionView.swift */,
 				4C43CB5028BA786F00A52B53 /* RankingFeatureSectionCollectionViewCell.swift */,
 				4C43CB5228BA7CA400A52B53 /* ExchangeCodeButtonView.swift */,
+				4C27A78628BB398F00472C83 /* AppViewControllerByCollectionView.swift */,
+				4C27A78928BB3A4400472C83 /* FeatureSectionCell.swift */,
+				4C27A78B28BB3E5300472C83 /* RankingFeatureSectionCell.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -243,6 +252,7 @@
 				4C11D91B28B8B625009FCE1C /* TodayViewController.swift in Sources */,
 				4C27A77F28BB2CC200472C83 /* Today.swift in Sources */,
 				4C11D90228B8B27B009FCE1C /* TabBarController.swift in Sources */,
+				4C27A78A28BB3A4400472C83 /* FeatureSectionCell.swift in Sources */,
 				4C43CB5328BA7CA400A52B53 /* ExchangeCodeButtonView.swift in Sources */,
 				4C27A78328BB2D3F00472C83 /* RankingFeature.swift in Sources */,
 				4C27A78128BB2D1100472C83 /* Feature.swift in Sources */,
@@ -252,6 +262,8 @@
 				4C11D91F28B8C079009FCE1C /* TodayCollectionViewHeader.swift in Sources */,
 				4C43CB5128BA786F00A52B53 /* RankingFeatureSectionCollectionViewCell.swift in Sources */,
 				4C43CB4728BA54E800A52B53 /* AppViewController.swift in Sources */,
+				4C27A78C28BB3E5300472C83 /* RankingFeatureSectionCell.swift in Sources */,
+				4C27A78728BB398F00472C83 /* AppViewControllerByCollectionView.swift in Sources */,
 				4C11D90028B8B27B009FCE1C /* SceneDelegate.swift in Sources */,
 				4C11D91D28B8B8AB009FCE1C /* TodayCollectionViewCell.swift in Sources */,
 				4C56F91528BB1D6600E4FCDA /* AppDetailViewController.swift in Sources */,

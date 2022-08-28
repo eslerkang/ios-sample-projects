@@ -47,6 +47,7 @@ final class AppDetailViewController: UIViewController {
         let button = UIButton()
         button.tintColor = .systemBlue
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
         
         return button
     }()
@@ -121,5 +122,12 @@ private extension AppDetailViewController {
             $0.centerY.equalTo(installButton)
             $0.trailing.equalTo(titleLabel)
         }
+    }
+    
+    @objc func didTapShareButton() {
+        let activityItems = [today.title]
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        
+        present(activityViewController, animated: true)
     }
 }
