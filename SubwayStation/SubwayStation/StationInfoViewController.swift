@@ -11,7 +11,7 @@ import Alamofire
 
 
 final class StationInfoViewController: UIViewController {
-    var station: Station?
+    private let station: Station
     private var realTimeArrivalList = [RealTimeArrival]()
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -39,16 +39,21 @@ final class StationInfoViewController: UIViewController {
         setupLayout()
         fetchData()
     }
+    
+    init(station: Station) {
+        self.station = station
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 
 private extension StationInfoViewController {
     @objc func fetchData() {
-        guard let station = station
-        else {
-            return
-        }
-        
         let stationName = station.stationName == "서울역" ? "서울" : station.stationName
         let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName)"
         
@@ -68,11 +73,6 @@ private extension StationInfoViewController {
     }
     
     func setupNavigation() {
-        guard let station = station
-        else {
-            return
-        }
-        
         navigationItem.title = station.stationName
         navigationController?.navigationBar.prefersLargeTitles = true
     }

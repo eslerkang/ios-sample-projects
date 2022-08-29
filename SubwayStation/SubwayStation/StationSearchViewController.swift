@@ -50,7 +50,6 @@ private extension StationSearchViewController {
                 else {
                     self.stations = []
                     self.tableView.reloadData()
-                    debugPrint(response)
                     return
                 }
                 
@@ -94,8 +93,8 @@ extension StationSearchViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = StationInfoViewController()
-        vc.station = stations[indexPath.row]
+        let vc = StationInfoViewController(station: stations[indexPath.row])
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
