@@ -44,8 +44,14 @@ final class StationInfoViewController: UIViewController {
 
 private extension StationInfoViewController {
     @objc func fetchData() {
-        guard let station = station else {return}
-        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.stationName)"
+        guard let station = station
+        else {
+            return
+        }
+        
+        let stationName = station.stationName == "서울역" ? "서울" : station.stationName
+        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName)"
+        
         AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationArrivalResponseModel.self) { response in
                 self.refreshControl.endRefreshing()
@@ -62,7 +68,11 @@ private extension StationInfoViewController {
     }
     
     func setupNavigation() {
-        guard let station = station else {return}
+        guard let station = station
+        else {
+            return
+        }
+        
         navigationItem.title = station.stationName
         navigationController?.navigationBar.prefersLargeTitles = true
     }

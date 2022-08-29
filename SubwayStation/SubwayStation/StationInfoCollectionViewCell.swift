@@ -48,7 +48,7 @@ final class StationInfoCollectionViewCell: UICollectionViewCell {
         backgroundColor = .systemBackground
         
         lineLabel.text = realTimeArrival.lineName
-        remainTimeLabel.text = "\(realTimeArrival.remainTime)(\(realTimeArrival.currentLocation))"
+        remainTimeLabel.text = realTimeArrival.remainTime.first != "[" ? "\(realTimeArrival.remainTime)(\(realTimeArrival.currentLocation))" : realTimeArrival.remainTime
     }
 }
 

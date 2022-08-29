@@ -50,6 +50,7 @@ private extension StationSearchViewController {
                 else {
                     self.stations = []
                     self.tableView.reloadData()
+                    debugPrint(response)
                     return
                 }
                 
@@ -106,6 +107,8 @@ extension StationSearchViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        stations = []
+        tableView.reloadData()
         tableView.isHidden = true
     }
     
