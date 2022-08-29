@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 
 class StationSearchViewController: UIViewController {
+    private var stations = [Station]()
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "지하철 역을 입력해주세요"
@@ -39,6 +42,23 @@ class StationSearchViewController: UIViewController {
 
 
 private extension StationSearchViewController {
+    func requestStationName(name: String) {
+        let urlString = "http://openapi.seoul.go.kr:8088/sample/json/SearchInfoBySubwayNameService/1/5/\(name)"
+        AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationResponseModel.self) { response in
+                guard case let Result.success(data) = response.result
+                else {
+                    self.stations = []
+                    self.tableView.reloadData()
+                    return
+                }
+                
+                self.stations = data.stations
+                
+                self.tableView.reloadData()
+            }
+    }
+    
     func setupNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "지하철 도착 정보"
@@ -58,14 +78,15 @@ private extension StationSearchViewController {
 
 extension StationSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return stations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subwayCell")
         var content = cell.defaultContentConfiguration()
-        content.text = "\(indexPath)"
-        content.secondaryText = "ASdf"
+        let station = stations[indexPath.row]
+        content.text = station.stationName
+        content.secondaryText = station.lineNumber
         cell.contentConfiguration = content
         
         return cell
@@ -73,7 +94,7 @@ extension StationSearchViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StationInfoViewController()
-        
+        vc.station = stations[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -86,5 +107,16 @@ extension StationSearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableView.isHidden = true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchText = searchText.replacingOccurrences(of: " ", with: "")
+        
+        if !searchText.isEmpty {
+            requestStationName(name: searchText)
+        } else {
+            self.stations = []
+            tableView.reloadData()
+        }
     }
 }

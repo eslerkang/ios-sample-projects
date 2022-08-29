@@ -38,7 +38,7 @@ final class StationInfoCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    func setup() {
+    func setup(realTimeArrival: RealTimeArrival) {
         setupLayout()
         
         layer.cornerRadius = 12
@@ -47,8 +47,8 @@ final class StationInfoCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         backgroundColor = .systemBackground
         
-        lineLabel.text = "왕십리행"
-        remainTimeLabel.text = "5분 후 도착"
+        lineLabel.text = realTimeArrival.lineName
+        remainTimeLabel.text = "\(realTimeArrival.remainTime)(\(realTimeArrival.currentLocation))"
     }
 }
 

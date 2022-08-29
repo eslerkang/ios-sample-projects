@@ -16,6 +16,8 @@
 		4C2F73B428BC6D9E00A0FFB8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2F73B328BC6D9E00A0FFB8 /* Alamofire */; };
 		4C2F73B628BC7ED400A0FFB8 /* StationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F73B528BC7ED400A0FFB8 /* StationInfoViewController.swift */; };
 		4C2F73B828BC806000A0FFB8 /* StationInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F73B728BC806000A0FFB8 /* StationInfoCollectionViewCell.swift */; };
+		4C2F73BA28BCAE8F00A0FFB8 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F73B928BCAE8F00A0FFB8 /* Station.swift */; };
+		4C2F73BC28BCB65800A0FFB8 /* StationArrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F73BB28BCB65800A0FFB8 /* StationArrival.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4C2F73A928BC6CC400A0FFB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C2F73B528BC7ED400A0FFB8 /* StationInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewController.swift; sourceTree = "<group>"; };
 		4C2F73B728BC806000A0FFB8 /* StationInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C2F73B928BCAE8F00A0FFB8 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		4C2F73BB28BCB65800A0FFB8 /* StationArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationArrival.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				4C2F73A428BC6CC400A0FFB8 /* Assets.xcassets */,
 				4C2F73A628BC6CC400A0FFB8 /* LaunchScreen.storyboard */,
 				4C2F73A928BC6CC400A0FFB8 /* Info.plist */,
+				4C2F73B928BCAE8F00A0FFB8 /* Station.swift */,
+				4C2F73BB28BCB65800A0FFB8 /* StationArrival.swift */,
 			);
 			path = SubwayStation;
 			sourceTree = "<group>";
@@ -156,7 +162,9 @@
 				4C2F739C28BC6CC300A0FFB8 /* AppDelegate.swift in Sources */,
 				4C2F73B828BC806000A0FFB8 /* StationInfoCollectionViewCell.swift in Sources */,
 				4C2F739E28BC6CC300A0FFB8 /* SceneDelegate.swift in Sources */,
+				4C2F73BA28BCAE8F00A0FFB8 /* Station.swift in Sources */,
 				4C2F73B628BC7ED400A0FFB8 /* StationInfoViewController.swift in Sources */,
+				4C2F73BC28BCB65800A0FFB8 /* StationArrival.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 
 final class StationInfoViewController: UIViewController {
+    var station: Station?
+    private var realTimeArrivalList = [RealTimeArrival]()
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
@@ -34,18 +37,33 @@ final class StationInfoViewController: UIViewController {
         
         setupNavigation()
         setupLayout()
+        fetchData()
     }
 }
 
 
 private extension StationInfoViewController {
     @objc func fetchData() {
-        print("hihi")
-        refreshControl.endRefreshing()
+        guard let station = station else {return}
+        let urlString = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.stationName)"
+        AF.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationArrivalResponseModel.self) { response in
+                self.refreshControl.endRefreshing()
+
+                guard case let .success(data) = response.result
+                else {
+                    debugPrint(response)
+                    return
+                }
+                
+                self.realTimeArrivalList = data.realtimeArrivalList
+                self.collectionView.reloadData()
+            }
     }
     
     func setupNavigation() {
-        navigationItem.title = "왕십리"
+        guard let station = station else {return}
+        navigationItem.title = station.stationName
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -65,7 +83,7 @@ private extension StationInfoViewController {
 
 extension StationInfoViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return realTimeArrivalList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,7 +92,7 @@ extension StationInfoViewController: UICollectionViewDelegateFlowLayout, UIColle
             return UICollectionViewCell()
         }
         
-        cell.setup()
+        cell.setup(realTimeArrival: realTimeArrivalList[indexPath.row])
         
         return cell
     }
