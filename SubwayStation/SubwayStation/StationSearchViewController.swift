@@ -78,15 +78,22 @@ private extension StationSearchViewController {
 
 extension StationSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stations.count
+        return stations.isEmpty ? 0 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subwayCell")
         var content = cell.defaultContentConfiguration()
-        let station = stations[indexPath.row]
+        let station = stations.first!
+        
+        var lineNumber = ""
+        stations.forEach {
+            lineNumber += $0.lineNumber + " / "
+        }
+        lineNumber = String(lineNumber[lineNumber.startIndex..<lineNumber.index(lineNumber.endIndex, offsetBy: -2)])
+        
         content.text = station.stationName
-        content.secondaryText = station.lineNumber
+        content.secondaryText = lineNumber
         cell.contentConfiguration = content
         
         return cell
