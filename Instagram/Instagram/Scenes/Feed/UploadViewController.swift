@@ -12,7 +12,14 @@ import SnapKit
 final class UploadViewController: UIViewController {
     private let image: UIImage
     
-    private let imageView = UIImageView()
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = self.image
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .lightGray
+        
+        return imageView
+    }()
     private lazy var textView: UITextView = {
         let textView = UITextView()
         textView.font = .systemFont(ofSize: 15)
@@ -74,7 +81,9 @@ private extension UploadViewController {
         let imageViewInset: CGFloat = 16.0
         
         imageView.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(imageViewInset)
+            $0.leading.equalToSuperview().inset(imageViewInset)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(imageViewInset)
+            $0.width.height.equalTo(120)
         }
     }
     
