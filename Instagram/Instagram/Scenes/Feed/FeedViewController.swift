@@ -22,6 +22,15 @@ final class FeedViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var imagePicker: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        
+        return imagePicker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,26 +39,20 @@ final class FeedViewController: UIViewController {
     }
 }
 
-
-private extension FeedViewController {
-    func setupNavigation() {
-        navigationItem.title = "instagram"
+extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage = UIImage()
         
-        let uploadButton = UIBarButtonItem(
-            image: UIImage(systemName: "plus.app"),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            selectedImage = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImage = originalImage
+        }
         
-        navigationItem.rightBarButtonItem = uploadButton
-    }
-    
-    func setupTableView() {
-        view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        picker.dismiss(animated: true) {
+            let vc = UploadViewController(image: selectedImage)
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -70,5 +73,33 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup()
         
         return cell
+    }
+}
+
+
+private extension FeedViewController {
+    func setupNavigation() {
+        navigationItem.title = "instagram"
+        
+        let uploadButton = UIBarButtonItem(
+            image: UIImage(systemName: "plus.app"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapAddButton)
+        )
+        
+        navigationItem.rightBarButtonItem = uploadButton
+    }
+    
+    func setupTableView() {
+        view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    @objc func didTapAddButton() {
+        present(imagePicker, animated: true)
     }
 }
