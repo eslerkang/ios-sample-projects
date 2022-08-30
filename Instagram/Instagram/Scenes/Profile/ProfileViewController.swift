@@ -141,12 +141,67 @@ final class ProfileViewController: UIViewController {
         return stackView
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 1
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: "profileCollectionViewCell")
+        
+        return collectionView
+    }()
+    
+    private lazy var alertController: UIAlertController = {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let editAction = UIAlertAction(title: "회원정보 수정", style: .default)
+        let removeAction = UIAlertAction(title: "회원탈퇴", style: .destructive)
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+        
+        [
+            editAction,
+            removeAction,
+            cancelAction
+        ].forEach {
+            alertController.addAction($0)
+        }
+        
+        return alertController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigation()
         setupLayout()
+    }
+}
+
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCollectionViewCell", for: indexPath) as? ProfileCollectionViewCell
+        else {
+            return UICollectionViewCell()
+        }
+        
+        cell.setup(with: UIImage())
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 3) / 3
+        return CGSize(width: width, height: width)
     }
 }
 
@@ -159,7 +214,7 @@ private extension ProfileViewController {
             image: UIImage(systemName: "ellipsis"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapSettingButton)
         )
         
         navigationItem.rightBarButtonItem = settingButton
@@ -167,7 +222,8 @@ private extension ProfileViewController {
     
     func setupLayout() {
         [
-            allProfileStackView
+            allProfileStackView,
+            collectionView
         ].forEach {
             view.addSubview($0)
         }
@@ -176,5 +232,14 @@ private extension ProfileViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
         }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(allProfileStackView.snp.bottom).offset(16)
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    @objc func didTapSettingButton() {
+        present(alertController, animated: true)
     }
 }
