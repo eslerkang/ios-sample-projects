@@ -25,6 +25,7 @@
 		4CE7943228BF5DF8008CDC56 /* Subject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE7943328BF712C008CDC56 /* FilteringOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FilteringOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE7943428BF77D2008CDC56 /* TransformingOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformingOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CEFD70728C072A400AE95DD /* TimeBasedOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBasedOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CF6650428BF2BF000A4A04E /* RxSwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF6650728BF2BF000A4A04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF6650928BF2BF000A4A04E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		4CF664FB28BF2BF000A4A04E = {
 			isa = PBXGroup;
 			children = (
+				4CEFD70728C072A400AE95DD /* TimeBasedOperator.playground */,
 				4C6B4AE428C0482A0033E89A /* CombiningOperator.playground */,
 				4CE7943428BF77D2008CDC56 /* TransformingOperator.playground */,
 				4CE7943328BF712C008CDC56 /* FilteringOperator.playground */,
