@@ -20,6 +20,8 @@
 		214A2F5309E7051BEE8D9F5B /* Pods_RxSwiftPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA7EA0E3110FD31CF8A08A2 /* Pods-RxSwiftPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPractice.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftPractice/Pods-RxSwiftPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		4C6B4AE428C0482A0033E89A /* CombiningOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombiningOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CC4B86E28EFD26300353A95 /* CombiningOperatorReview.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombiningOperatorReview.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4CC4B86F28EFF13300353A95 /* TimeBasedOperatorReview.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TimeBasedOperatorReview.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE7943028BF2C5B008CDC56 /* Observable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Observable.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE7943128BF4F05008CDC56 /* Traits.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Traits.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE7943228BF5DF8008CDC56 /* Subject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -60,6 +62,8 @@
 		4CF664FB28BF2BF000A4A04E = {
 			isa = PBXGroup;
 			children = (
+				4CC4B86F28EFF13300353A95 /* TimeBasedOperatorReview.playground */,
+				4CC4B86E28EFD26300353A95 /* CombiningOperatorReview.playground */,
 				4CEFD70728C072A400AE95DD /* TimeBasedOperator.playground */,
 				4C6B4AE428C0482A0033E89A /* CombiningOperator.playground */,
 				4CE7943428BF77D2008CDC56 /* TransformingOperator.playground */,
